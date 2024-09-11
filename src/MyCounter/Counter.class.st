@@ -25,3 +25,30 @@ Counter >> count [
 Counter >> count: val [
 	count := val 
 ]
+
+{ #category : 'API' }
+Counter >> decrement [ 
+	count := count - 1
+]
+
+{ #category : 'accessing' }
+Counter >> increment [ 
+	count := count + 1
+]
+
+{ #category : 'initialization' }
+Counter >> initialize [
+	"set the initial value of the value to 0"
+	count := 0
+]
+
+{ #category : 'printing' }
+Counter >> printOn: aStream [
+	super printOn: aStream.
+	aStream nextPutAll: ' with value: ', count printString.
+]
+
+{ #category : 'accessing' }
+Counter >> startingAt: anInteger [
+	^ Counter new count: anInteger.
+]
